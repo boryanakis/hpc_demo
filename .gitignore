@@ -1,0 +1,11 @@
+*.sam
+*.bam
+*.bai
+
+
+# index files
+*.amb
+*.ann
+*.bwt
+*.pac
+*.sa
