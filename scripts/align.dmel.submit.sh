@@ -1,13 +1,10 @@
 #!/bin/bash
 #SBATCH --partition=sixhour
-#SBATCH --export=NONE
-#SBATCH --mail-type=FAIL
-#SBATCH --mail-user=$USER@ku.edu
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=30gb
 #SBATCH --time=1:00:00
-#SBATCH --output=${SCRATCH}/hpc_demo/reports/dmel_alignment_%j.out
+#SBATCH --output=dmel_alignment_%j.out
 #SBATCH --job-name=dmel_alignment_demo
 
 # load necessary programs
@@ -15,9 +12,12 @@ module load bwa
 module load samtools
 
 # define some variables - aids in reusing a script
+## directories
 MAIN_DIR=${SCRATCH}/hpc_demo
-REF_GENOME=${MAIN_DIR}/refs/dmel.chr3R.fa
 OUTPUTS_DIR=${MAIN_DIR}/outputs
+DATA_DIR=${MAIN_DIR}/data
+## files
+REF_GENOME=${MAIN_DIR}/refs/dmel.chr3R.fa
 R1=${DATA_DIR}/dmel.R1.fq.gz
 R2=${DATA_DIR}/dmel.R2.fq.gz
 
